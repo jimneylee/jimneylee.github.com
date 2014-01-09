@@ -10,7 +10,9 @@ tags:
 ---
 
 经过昨天今天的探索，好不容易把PLCrashReporter给跑起来。
+
 下面分享下步骤，
+
 1、项目主页：[http://code.google.com/p/plcrashreporter](http://code.google.com/p/plcrashreporter)
 
 * a. git clone源码，[http://code.google.com/p/plcrashreporter/source/checkout](http://code.google.com/p/plcrashreporter/source/checkout)

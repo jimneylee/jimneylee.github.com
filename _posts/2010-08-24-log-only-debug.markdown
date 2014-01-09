@@ -12,7 +12,9 @@ tags:
 ---
 
 app发布后，程序运行过程中尽量不要有调试log信息输出，因为这样会影响程序运行的效率。通过宏定义设置，使得程序只在debug模式下输出这些只对于我们开发者有用的信息，而release时不会输出。
+
 一、设置步骤如下：
+
 1、首先建立一个宏定义文件，在其中加入如下代码:
 
 	//! 1、XCode中设置控制
@@ -28,7 +30,9 @@ app发布后，程序运行过程中尽量不要有调试log信息输出，因�
 	#endif
 
 2、在Target的Bulid搜索 GCC_PREPROCESSOR_DEFINITIONS（或者preprocessor macros），没有自己创建一个
+
 3、选择 左上角的Configuration的 Debug，在左下角的下拉框选择->Edit Definition at this Level ,添加 DEBUG_MODE=1
+
 4、选择左上角的Configuration: Release，确认没有设置 DEBUG_MODE 的值
 
 二、使用：

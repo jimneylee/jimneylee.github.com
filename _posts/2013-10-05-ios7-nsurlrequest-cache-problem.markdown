@@ -10,8 +10,8 @@ tags:
 - cache
 ---
 
-	NSURLRequest *request = [NSURLRequest requestWithURL:url      							 									 cachePolicy:NSURLCacheStorageNotAllowed    
-				 						 timeoutInterval:20.f];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url											  cachePolicy:NSURLCacheStorageNotAllowed    
+				 		  				  timeoutInterval:20.f];
 
 最近发现已发布的app的天气每天获取的都是以前某一天的数据，但是之前没有这个情况，原来ios6下没有问题，但是在ios7下，即使设置了`NSURLCacheStorageNotAllowed`，仍然缓存旧数据的问题。
 

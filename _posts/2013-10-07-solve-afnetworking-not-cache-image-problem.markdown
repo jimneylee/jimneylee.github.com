@@ -12,8 +12,9 @@ tags:
 
 今天编译nimbus项目报错：ADDRESPONSE - not adding TO DISK OR MEMORY
 
-	NSURLRequest *request = [NSURLRequest requestWithURL:url      							 									 cachePolicy:NSURLCacheStorageNotAllowed    
-				 						 timeoutInterval:20.f];
+	NSURLRequest *request = [NSURLRequest requestWithURL:url
+											  cachePolicy:NSURLCacheStorageNotAllowed    
+				 						  timeoutInterval:20.f];
 
 
 今天使用`AFNetworking`库，`UIImaeView`缓存图片时，出现这个怪异的警告，图片无法disk缓存。

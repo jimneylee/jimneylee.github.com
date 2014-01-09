@@ -2,7 +2,7 @@
 author: jimneylee
 layout: post
 title: "iPhone开发如何管理第三方依赖库"
-date: 2013-11-25 11:44:00
+date: 2013-11-26 11:44:00
 comments: true
 tags:
 - git

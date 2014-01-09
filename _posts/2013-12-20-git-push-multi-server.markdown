@@ -1,7 +1,7 @@
 ---
 author: jimneylee
 layout: post
-title: "git如何同步到多个git server(github gitcafe gitosc)"
+title: "git如何同步到多个git server"
 date: 2013-12-20 10:13:17
 comments: true
 tags:

@@ -31,14 +31,14 @@ tags:
 建立一个command line工程，进行简单测试。
 
 1、设置工程库文件和头文件引入目录，如下图
-![](/img/posts/archives/quick-install-opencv-in-macos/set-search-paths.jpg)
+![](/static/images/quick-install-opencv-in-macos/set-search-paths.jpg)
 
 2、引入两个动态链接库，位于/opt/local/lib
-![](/img/posts/archives/quick-install-opencv-in-macos/add-two-dynamic-lib.jpg)
+![](/static/images/quick-install-opencv-in-macos/add-two-dynamic-lib.jpg)
 
 3、编写最简单的测试代码，资源放在工程目录下
-![](/img/posts/archives/quick-install-opencv-in-macos/sample-code.jpg)
+![](/static/images/quick-install-opencv-in-macos/sample-code.jpg)
 
 4、运行结果如下图，分别为isColor=1(原图显示)和isColor=0(黑白显示)
-![](/img/posts/archives/quick-install-opencv-in-macos/result-color-image.jpg)
-![](/img/posts/archives/quick-install-opencv-in-macos/result-blackwhite-image.jpg)
+![](/static/images/quick-install-opencv-in-macos/result-color-image.jpg)
+![](/static/images/quick-install-opencv-in-macos/result-blackwhite-image.jpg)

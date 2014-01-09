@@ -44,6 +44,7 @@ OK！
 有可能是你一次提交的文件太大，需设置postBuffer大小，我需要50MB，所以：
 
 	$ git config http.postBuffer 52428800
+	
 或
 
 	$ git config https.postBuffer 52428800

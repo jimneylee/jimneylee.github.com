@@ -1,0 +1,7 @@
+<h4>Related Posts</h4>
+{% for tag in tags_list %} 
+  <ul class="post">
+    {% assign pages_list = tag %}  
+    {% include JB/pages_list %}
+  </ul>
+{% endfor %}

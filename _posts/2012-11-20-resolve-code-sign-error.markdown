@@ -8,7 +8,6 @@ tags:
 - sign
 - iphone
 - xcode
-- key
 ---
 
 这两天的时间都浪费搞证书上了。不知咋的，突然证书无法使用，开始是`valid signing certificate not found`，同时XCode里面证书设置那边报`key/certificate`不匹配。
@@ -16,9 +15,9 @@ tags:
 昨天摸索一天，终于找到必杀技。revoke掉certificate，重新生成所有的证书，才没有上面的问题。
 
 今天又遇到下面这个DT的问题：
-`Code Sign error: Certificate identity 'iPhone Developer: 
+>Code Sign error: Certificate identity 'iPhone Developer: 
 My Name (xxx)' appears more than once in the keychain. 
-The codesign tool requires there only be one.`
+The codesign tool requires there only be one.
 
 我试了如下方面，对我没有可能的对你有用。
 1、因为反复安装证书，到`access key（钥匙串访问）`删除相同的证书。

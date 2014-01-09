@@ -11,12 +11,10 @@ tags:
 - hightlight
 ---
 
-* step1: 
-{% highlight bash %}
-$ find . -type d -name ".svn" | xargs rm -rf
-{% endhighlight %}
+step1: 
 
-* step2: 
-{% highlight bash %}
-$ find . -name .git -print0 | xargs -0 rm -rf
-{% endhighlight %}
+	$ find . -type d -name ".svn" | xargs rm -rf
+
+step2: 
+
+	$ find . -name .git -print0 | xargs -0 rm -rf

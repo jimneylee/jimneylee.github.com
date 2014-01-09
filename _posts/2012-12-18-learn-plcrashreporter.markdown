@@ -1,11 +1,11 @@
 ---
 author: jimneylee
 layout: post
-title: "记：ios PLCrashReporter 学习一"
+title: "记：ios PLCrashReporter学习一"
 date: 2012-12-18 10:10:14
 comments: true
 tags:
-- PLCrashReporter
+- crashreporter
 - xcode
 ---
 

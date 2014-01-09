@@ -25,22 +25,17 @@ tags:
 
 ３、将安装目录下`support-files`目录中的`my-small.cnf`拷贝到ect中，并更名为`my.cnf`，MySQL启动时加载的配置文件
 
-{% highlight bash %}
-$ cd /usr/local/mysql-5.1.61-osx10.6-x86_64
-$ sudo cp support-files/my-small.cnf /etc/
-$ mv /ect/my-small.cnf /ect/my.cnf
-{% endhighlight %}
+	$ cd /usr/local/mysql-5.1.61-osx10.6-x86_64
+	$ sudo cp support-files/my-small.cnf /etc/
+	$ mv /ect/my-small.cnf /ect/my.cnf
+
 ４、初始root密码为空，所以需要设置root密码
 
-{% highlight bash %}
-$ mysqladmin -u root -p password [password]
-{% endhighlight %}
+	$ mysqladmin -u root -p password [password]
 
 5、登录测试，在系统设置偏好（system reference）中MySQL开启运行Server，并做些sql指令操作（本文省去）
 
-{% highlight bash %}
-$ mysql -h localhost -u root -p
-{% endhighlight %}
+	$ mysql -h localhost -u root -p
 
 6、关于字节编码需要做一些简单配置修改,初始默认支持`latin`，所以数据库存入中文`utf８`后，查询显示为乱码
 
@@ -56,17 +51,11 @@ $ mysql> show variables like'character%';
 $ sudo vi /ect/my.cnf
 {% endhighlight %}
 >[client]
-
 >default-character-set = utf8
-
 >[mysqld]
-
 >default-storage-engine = INNODB
-
 >character-set-server = utf8
-
 >collation-server = utf8_general_ci
-
 >default-character-set = utf8
 
 至此，完成了MySQL　Server的安装与测试。过程跟linux基本一样，都是类unix系统。
@@ -82,14 +71,12 @@ $ sudo vi /ect/my.cnf
 
 ３、通过终端进入到`mysql-connector-c-6.0.2`目录下，运行下面命令，生成XCode工程
 
-{% highlight bash %}
-$ cmake -G Xcode
-{% endhighlight %}
+	$ cmake -G Xcode
 在这里推荐一个MacOS开源插件[cdto](https://github.com/jbtule/cdto)。类似ubuntu系统下，在可视化的目录窗口，终端进入直接对应的目录路径，挺方便的。
 
 ４、修改一些文件，不然编译会出错
 
-* a、在my_net.h文件中，注销掉47和49行
+* a、在`my_net.h`文件中，注销掉47和49行
 
 {% highlight c %}
 //#include <netinet/in_systm.h>
@@ -97,13 +84,13 @@ $ cmake -G Xcode
 //#include <netinet/ip.h>
 {% endhighlight %}
 
-* b、在my_global.h，129行编译宏添加arm编译选择
+* b、在`my_global.h`，129行编译宏添加arm编译选择
 
 {% highlight c %}
 #if defined(__i386__) || defined(__ppc__) || defined(__arm__)
 {% endhighlight %}
 
-* c、在my_config.h，注销掉６３行
+* c、在`my_config.h`，注销掉６３行
 
 ５、通过`xcodebuild`命令为simulator和ios设备，生成对应的编译库，然后通过`lipo`生成一个统一包。首先在终端（terminal）cd到源码的`libmysql`路径下，运行如下命令：
 
@@ -112,6 +99,7 @@ $ cmake -G Xcode
 {% highlight bash %}
 $ xcodebuild -project ../libmysql.xcodeproj -target mysqlclient -configuration Release -sdk iphonesimulator4.3 ONLY_ACTIVE_ARCH=NO ARCHS=i386 PRODUCT_NAME=mysqlclient_simulator
 {% endhighlight %}
+
 * b、生成ios设备静态包
 
 {% highlight bash %}
@@ -120,8 +108,8 @@ $ xcodebuild -project ../libmysql.xcodeproj -target mysqlclient -configuration R
 
 * c、使用lipo打在一起，保存在Release-iphoneos路径下
 
-{% highlight bash %}
-$ lipo ./Release-iphonesimulator/libmysqlclient_simulator.a ./Release-iphoneos/libmysqlclient_device.a -create -output ./Release-iphoneos/libmysqlclient.a
+{% highlight c %}
+	$ lipo ./Release-iphonesimulator/libmysqlclient_simulator.a ./Release-iphoneos/libmysqlclient_device.a -create -output ./Release-iphoneos/libmysqlclient.a
 {% endhighlight %}
 至此所用的静态包已经打好，库头文件为源码目录中的include目录下所有的头文件。
 
@@ -131,19 +119,18 @@ $ lipo ./Release-iphonesimulator/libmysqlclient_simulator.a ./Release-iphoneos/l
 
 通过XCode建立一个视图工程，在视图viewDidLoad中添加如下代码：
 
-{% highlight c %}
-#import "mysql.h"
-MYSQL *mysql = mysql_init(nil);
-if(mysql_real_connect(mysql, localhost, username, passwd, dbname, 3306, NULL, 0)) {
-    //set encode utf８
-    mysql_set_character_set(mysql, "utf8");
-    NSLog(@"Connection Successful!");
-    //TODO:CRUD
-}
-else {
-    NSLog(@"Connection Failed");
-}
-{% endhighlight %}
+	#import "mysql.h"
+	MYSQL *mysql = mysql_init(nil);
+	if(mysql_real_connect(mysql, localhost, username, passwd, dbname, 3306, NULL, 0)) {
+	    //set encode utf８
+	    mysql_set_character_set(mysql, "utf8");
+	    NSLog(@"Connection Successful!");
+	    //TODO:CRUD
+	}
+	else {
+	    NSLog(@"Connection Failed");
+	}
+
 **后记**
 
 今天发现这些东西梳理出来写成博文的过程，跟code有一样的体验。理清思路，把知道的东西简洁表达而不被误解，还是要有一些思考和推敲。好长时间没写东西，纲领概要啥都无知，今后也要多写写。软件开发忌讳重复劳动，这意味额外的代价。人生短暂，伤不起也损不起。如果这篇博文能为您节省生命，乃我大幸大乐也！

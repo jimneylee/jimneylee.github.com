@@ -32,10 +32,8 @@ tags:
 使sh文件均可被执行：`chmod a+x use*.sh`
 如想同步到gitcafe上，只需要到.git目录下执行：
 
-```bash
-$ ./use_gitcafe.sh
-$ git push origin master
-```
+	$ ./use_gitcafe.sh
+	$ git push origin master
 
 OK！
 在同步到gitcaft，我遇到这个问题：
@@ -45,14 +43,9 @@ OK！
 
 有可能是你一次提交的文件太大，需设置postBuffer大小，我需要50MB，所以：
 
-```bash
-$ git config http.postBuffer 52428800
-```
-
+	$ git config http.postBuffer 52428800
 或
 
-```bash
-$ git config https.postBuffer 52428800
-```
+	$ git config https.postBuffer 52428800
 
 参见SO：[http://stackoverflow.com/questions/12651749/git-push-fails-rpc-failed-result-22-http-code-411](http://stackoverflow.com/questions/12651749/git-push-fails-rpc-failed-result-22-http-code-411)

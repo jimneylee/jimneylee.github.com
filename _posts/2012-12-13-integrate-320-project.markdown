@@ -17,41 +17,38 @@ tags:
 
 问题2、客户如何调用我主控制器
      开始我以为很简单，一句话的事：   
-{% highlight objc %}
-  [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"mine://maintab"]];
-{% endhighlight %}
 
- 但是我发现返回不了。看了底层才知道，由于three20基于导航url思想，默认会生成一个               TTNavigationController，并设为rootViewController，见TTBaseNavigator.m line242:
- {% highlight objc %}
+    [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"mine://maintab"]];
+
+但是我发现返回不了。看了底层才知道，由于three20基于导航url思想，默认会生成一个               `TTNavigationController`，并设为rootViewController，见`TTBaseNavigator.m` line242:
+
     if (nil != _rootContainer) {
       [_rootContainer navigator:self setRootViewController:_rootViewController];
     } else {
       [self.window addSubview:_rootViewController.view];
     }
-{% endhighlight %}
 
- 如果直接通过window来添加，效果不好。此处rootContainer的代理使用很特别，哈哈，通过它能使three20工程和其他项目工程无缝链接。代码如下：
-  {% highlight objc %}
- - (void)startLibraryWithParentController:(UIViewController*)parentController
-{
-    self.parentViewController = parentController;
-    // 设置容器的代理，显示320的rootViewController
-    [[TTNavigator navigator] setRootContainer:self];
-   // 此处一般在AppDelegate 调用，此处省略了Three20工程初始化初始化[AppDelegate init]
-    [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"mine://maintab"]];
-}
-- (void)stopLibrary
-{
-    [self.parentViewController dismissModalViewControllerAnimated:YES];
-    [[TTNavigator navigator] removeAllViewControllers];
-    [delegate applicationWillTerminate:nil];    
-    // release all singleton class if need
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark TTNavigatorRootContainer
-- (void)navigator:(TTBaseNavigator*)navigator setRootViewController:(UIViewController*)controller {
-    // 对方的父控制器上显示Three20的rootViewController
-    [self.parentViewController presentModalViewController:controller animated:YES];
-}
-{% endhighlight %}
+如果直接通过window来添加，效果不好。此处rootContainer的代理使用很特别，哈哈，通过它能使three20工程和其他项目工程无缝链接。代码如下：
+
+     - (void)startLibraryWithParentController:(UIViewController*)parentController
+    {
+        self.parentViewController = parentController;
+        // 设置容器的代理，显示320的rootViewController
+        [[TTNavigator navigator] setRootContainer:self];
+       // 此处一般在AppDelegate 调用，此处省略了Three20工程初始化初始化[AppDelegate init]
+        [[TTNavigator navigator] openURLAction:[TTURLAction actionWithURLPath:@"mine://maintab"]];
+    }
+    - (void)stopLibrary
+    {
+        [self.parentViewController dismissModalViewControllerAnimated:YES];
+        [[TTNavigator navigator] removeAllViewControllers];
+        [delegate applicationWillTerminate:nil];    
+        // release all singleton class if need
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    #pragma mark -
+    #pragma mark TTNavigatorRootContainer
+    - (void)navigator:(TTBaseNavigator*)navigator setRootViewController:(UIViewController*)controller {
+        // 对方的父控制器上显示Three20的rootViewController
+        [self.parentViewController presentModalViewController:controller animated:YES];
+    }

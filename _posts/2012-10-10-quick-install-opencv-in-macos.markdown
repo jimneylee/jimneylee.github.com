@@ -7,7 +7,6 @@ comments: true
 tags:
 - MacOS
 - OpenCV
-- port
 ---
 
 最近想学习OpenCV，在我的MacMini上安装这个很不错的开源图像处理库。由于安装编译OpenCV，需要cmake来编译。cmake又需要make工具和gcc编译器。一连串需要安装下载的东西很多。
@@ -24,11 +23,9 @@ tags:
 
 3、上面安装完成后，打开`Terminal`终端，运行如下：
 
-{% highlight bash %}
-$ sudo port selfupdate // 更新自身到最新版本
-$ sudo port list opencv // 查看要下载的opencv的版本号，此步骤可忽略
-$ sudo port install opencv // 等待安装，此步骤时间较长
-{% endhighlight %}
+	$ sudo port selfupdate // 更新自身到最新版本
+	$ sudo port list opencv // 查看要下载的opencv的版本号，此步骤可忽略
+	$ sudo port install opencv // 等待安装，此步骤时间较长
 
 安装路径默认位于`/opt/local/include`和`/opt/local/lib`
 建立一个command line工程，进行简单测试。

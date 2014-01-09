@@ -5,7 +5,7 @@ title: "开源基于nimbus的新浪微博iPhone客户端框架"
 date: 2013-11-04 10:40
 comments: true
 tags:
-- sinaweibo
+- weibo
 - nimbus
 - opensource
 ---

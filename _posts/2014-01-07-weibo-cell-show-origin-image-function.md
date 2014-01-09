@@ -11,7 +11,7 @@ tags:
 
 今天在我的[开源新浪微博客户端](https://github.com/jimneylee/SinaMBlogNimbus)上加上这个功能。之前预想实现比较复杂，今天详细考虑下，实现还是比较简单，核心代码是10来行即可搞定。
 
-![image](http://www.cocoachina.com/bbs/attachment/Fid_6/6_22435_2fbef273f26a4b5.gif)
+![](http://www.cocoachina.com/bbs/attachment/Fid_6/6_22435_2fbef273f26a4b5.gif)
 
 ###实现思路剖析
 

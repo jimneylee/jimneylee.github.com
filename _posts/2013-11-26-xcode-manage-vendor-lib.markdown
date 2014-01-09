@@ -1,7 +1,7 @@
 ---
 author: jimneylee
 layout: post
-title: "XCode第三方依赖库的管理（git submodule和CocoaPods）"
+title: "iPhone开发如何管理第三方依赖库"
 date: 2013-11-25 11:44:00
 comments: true
 tags:
@@ -10,7 +10,7 @@ tags:
 - cocoapods
 ---
 
-采用`git submodule`和`CocoaPods`结合管理，如果依赖的库支持`CocoaPads`，优先采用`CocoaPads`，如果不支持，则采用`git submodule`。做依赖管理第三方库，主要为了日后更新方便，与原版本保持同步，及时修复因依赖引入的bug。
+采用`git submodule`和`CocoaPods`结合管理，如果依赖的库支持`CocoaPads`，优先采用`CocoaPads`，类似Ruby环境的gem工具。如果被依赖库不支持，则采用`git submodule`。通过依赖管理第三方库，主要为了日后更新方便，与原版本保持同步，及时修复因依赖引入的bug。
 
 1、查看是否可以`CocoaPads`依赖
 

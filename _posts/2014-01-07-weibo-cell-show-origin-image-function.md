@@ -5,12 +5,16 @@ title: "实现微博图片查看原图功能"
 date: 2014-01-07 10:37
 comments: true
 tags:
-- sina
+- iphone
 - weibo
 ---
 
 今天在我的[开源新浪微博客户端](https://github.com/jimneylee/SinaMBlogNimbus)上加上这个功能。之前预想实现比较复杂，今天详细考虑下，实现还是比较简单，核心代码是10来行即可搞定。
+
+![image](http://www.cocoachina.com/bbs/attachment/Fid_6/6_22435_2fbef273f26a4b5.gif)
+
 ###实现思路剖析
+
 ####1、获取视图动画的初始frame
 这个功能实现的复杂性在于，微博Cell本身视图内容就多层嵌套，包含当前微博和被转发微博，同时Cell又是位于tableView上，视图显示的UI比一般的简单布局要复杂多。
 但是我们通过将图片视图，从当前父视图，往上层父视图转换，一直到window级别，这样我们就准确获取到动画放大显示前的原位置，对应于fromRect。
@@ -55,6 +59,7 @@ tags:
         CGFloat progress = (float)readBytes / (float)totalBytes;
         self.progressIndicator.progress = progress;
     }
+    
 ####3、图片缩放功能
 难点在于缩放的同时，调整imageView的center始终位于中间位置，主要考虑imageView高度小于屏幕高度后center调整，这边实现我参考SO的解答：http://stackoverflow.com/questions/1316451/center-content-of-uiscrollview-when-smaller
 以前这个问题困扰我很久，今天终于得到解决，挺高兴的。

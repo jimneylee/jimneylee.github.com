@@ -3,7 +3,9 @@ layout: post
 title: "自定义xopen命令打开工程"
 description: ""
 category: 
-tags: [xcode ruby]
+tags:
+- xcode
+- ruby
 ---
 {% include JB/setup %}
 

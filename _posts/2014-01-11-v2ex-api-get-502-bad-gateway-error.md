@@ -4,7 +4,9 @@ title: "ios http请求出现502-bad-gateway错误"
 tagline: ""
 description: ""
 category: 
-tags: [iphone nginx]
+tags: 
+- iphone
+- nginx
 ---
 {% include JB/setup %}
 

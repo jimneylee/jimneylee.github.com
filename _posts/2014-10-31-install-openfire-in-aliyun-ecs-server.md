@@ -9,6 +9,7 @@ tags:
 - openfire
 - xmpp
 ---
+{% include JB/setup %}
 
 最近搞了一台[阿里云的ECS服务器](http://buy.aliyun.com/?spm=5176.383338.5.4.RsiCqv)，因为搞活动半年免费，所以就申请了一台，过两天就批准下来。因为固定IP，所以多花了1百多RMB买了固定IP。总体说了还是挺值得，觉得一个用浪费，分享出来跟大家一起玩玩。
 

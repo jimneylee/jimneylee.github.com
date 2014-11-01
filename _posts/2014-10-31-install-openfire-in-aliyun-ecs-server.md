@@ -8,7 +8,7 @@ tags:
 - xmpp
 ---
 
-最近搞了一台[阿里云的ECS服务器](http://buy.aliyun.com/?spm=5176.383338.5.4.RsiCqv)，因为搞活动半年免费，所以就申请了一台，过两天就批准下来，顺便多花了1百多RMB买了固定IP。总体说了还是挺值得，觉得一个用浪费，分享出来跟大家一起玩玩。
+最近搞了一台[阿里云的ECS服务器](http://buy.aliyun.com/?spm=5176.383338.5.4.RsiCqv)，因为搞活动半年免费，所以就申请了一台，过两天就批准下来，顺便多花了1百多RMB买了固定IP。总体说来还是挺值的，觉得一个人用挺浪费，分享出来跟大家一起玩玩。
 
 搞台服务器主要为了学习即时聊天功能模块的开发，服务器采用[OpenFire](http://www.igniterealtime.com/)，i
 OS前端基于[XMPPFrameWork](https://github.com/robbiehanson/XMPPFramework)，经过一段时间学习，写了一个[开源作品JLWeChat](https://github.com/jimneylee/JLWeChat-iPhone)，已从oschina的私有仓库转移到github，欢迎参与讨论交流。

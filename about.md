@@ -7,13 +7,13 @@ group: "navigation"
 ---
 {% include JB/setup %}
 
-### about me
+### About me
 
 name: 李进晋
 
 info: iOS攻城师一枚，爱运动，喜欢技术交流，拥抱开源！
 
-### contact me
+### Contact me
 
 email: [jimneylee(at)gmail.com][email]
 
